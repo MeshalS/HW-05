@@ -45,7 +45,7 @@ function saveTask(saveHourKey){
     
 // getting the ids 
    let inputValue = $("#" + saveHourKey).val(); 
-   var listOfTasksObj = localStorage.getItem('listOfTasksObj');
+   let listOfTasksObj = localStorage.getItem('listOfTasksObj');
    if (listOfTasksObj == undefined){
        // means the obj has not been created 
        // only happens once. In first creation. 
