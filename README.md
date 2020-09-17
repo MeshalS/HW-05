@@ -29,11 +29,11 @@ This HW covers the JQuey and Js and local-storage. ALos , it allow me to know ne
 
 in this Ex. it will show about the creation of object that store the hour 
 
-  <!-- if (listOfTasksObj == undefined){
+  if (listOfTasksObj == undefined){
        // means the obj has not been created 
        // only happens once. In first creation. 
        listOfTasksObj = {}; 
        //passing the hour to once you do the save 
-       listOfTasksObj[saveHourKey] = inputValue;  -->
+       listOfTasksObj[saveHourKey] = inputValue; 
 
 
