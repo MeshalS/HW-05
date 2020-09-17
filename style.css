@@ -31,7 +31,7 @@ body {
   }
   
   .row {
-    /* white-space: pre-wrap; */
+    /* white-space: pre-wrap; : */
     height: 80px;
     border-top: 1px solid white;
     ;
@@ -62,7 +62,7 @@ body {
     background-color: #77dd77;
     color: white;
   }
-  
+
   .saveBtn {
     border-left: 1px solid black;
     border-top-right-radius: 15px;
