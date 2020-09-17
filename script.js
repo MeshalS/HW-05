@@ -33,3 +33,71 @@ function buildhtml(hour) {
     </div>`
     return row;
 }
+function timeLine() {
+    while (hours <= 17) {
+        timeBlock.append(buildhtml(hours))
+        hours++
+    }
+
+}
+// save task 
+function saveTask(saveHourKey){
+    
+// getting the ids 
+   let inputValue = $("#" + saveHourKey).val(); 
+   var listOfTasksObj = localStorage.getItem('listOfTasksObj');
+   if (listOfTasksObj == undefined){
+       // means the obj has not been created 
+       // only happens once. In first creation. 
+       listOfTasksObj = {}; 
+       listOfTasksObj[saveHourKey] = inputValue; 
+   }else {
+       // if already created , then change back into a js obj from a json string. 
+       listOfTasksObj = JSON.parse(listOfTasksObj); 
+       listOfTasksObj[saveHourKey] = inputValue; //saves the value 
+   }
+
+   localStorage.setItem('listOfTasksObj', JSON.stringify(listOfTasksObj));
+
+}
+
+function getTask(hourKey){
+    var listOfTasksObj = localStorage.getItem('listOfTasksObj');
+    if (listOfTasksObj == undefined){
+        return ""; 
+    }
+    // convert to js obj 
+    listOfTasksObj = JSON.parse(listOfTasksObj); 
+    var taskValue = listOfTasksObj[hourKey]; 
+    if (taskValue != undefined){
+        return taskValue;
+    }else {
+        return "";  ///value not stored yet 
+    }
+    
+}
+function calculateColor(hour) {
+
+    // 3 color classes: present, future, past 
+        let d= new Date();
+        let currentHours = d.getHours();  // 24 hr consistent format with hour passed in parameter
+        // return hour == currentHours ? "present" : hour
+        if (hour == currentHours){
+            return "present";
+        }else if (hour > currentHours){
+            /// time is ahead of us 
+            return "future"; 
+        }else if (hour < currentHours) {
+            // means the time is behind... so past 
+            return "past"; 
+        }else {
+            return ""; 
+        }
+    //     if (h > currentTime) {
+    //         //future
+    //         let element=$("#".concat(h));
+    //         element.addClass("future")
+    //     }
+    // alert($("#".concat(h).) )
+
+}
